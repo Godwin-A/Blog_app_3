@@ -1,0 +1,16 @@
+.btn{
+  width:fit-content
+}
+/* body{
+  background-color: black;
+} */
+#image{
+  height: 500px;
+}
+p{
+  font-weight: bolder;
+}
+#cont{
+ text-align: center;
+ margin-top: 50px;
+}

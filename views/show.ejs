@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+<div class="container">
+  <h1  class="mb-1"> <%= blog.title %>   </h1>
+  <div class="text-muted mb-2">
+    <p> created at:  <%= blog.created.toDateString()%></p> 
+  </div>
+  <div class="">
+    <img id="image" class="img-thumbnail img-fluid"  src="<%= blog.image %>" alt="">
+  </div>
+  <a class="btn btn-secondary" href="/blogs">All Blogs</a>
+  <a class="btn btn-info" href="/blogs/<%= blog._id %>/edit">Edit</a>
+<div>
+  <%- blog.description %>
+</div>
+<form action="/blog/<%= blog._id %>?_method=DELETE" method="POST">
+  <button class="btn btn-danger">delete</button>
+</form>
+
+  
+</div>
+<%- include('partials/footer') %>
