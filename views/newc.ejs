@@ -1,0 +1,21 @@
+<h1>new comment route</h1>
+
+
+
+<%- include('partials/header') %>
+
+
+<div class="container-sm">
+  <h1 class="card-title">Add new comment to <%=blog.title %> </h1>
+      <form action="/blogs/<%= blog._id %>/comments" method="POST">
+       <div class="mb-3">
+         <label  class="form-label">comment Text</label>
+  <input class="form-control" type="text" name="comment[text]" placeholder="Text">
+      
+     
+      <input class="btn btn-warning" type="submit" >
+      </form>
+</div>
+
+<%- include('partials/footer') %>
+

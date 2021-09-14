@@ -1,20 +1,48 @@
 <%- include('partials/header') %>
 <div class="container">
-  <h1  class="mb-1"> <%= blog.title %>   </h1>
+  <h1  class="mb-1"> <%= blog.title %>  </h1>
   <div class="text-muted mb-2">
     <p> created at:  <%= blog.created.toDateString()%></p> 
   </div>
-  <div class="">
-    <img id="image" class="img-thumbnail img-fluid"  src="<%= blog.image %>" alt="">
+  <div class="img-thumbnail">
+    <img id="image" class="img-thumbnail img-fluid"  src="<%= blog.image %>" alt=""> <p> 
+    <em>Submitted by</em>
+     <%= blog.author.username %></p>
   </div>
-  <a class="btn btn-secondary" href="/blogs">All Blogs</a>
-  <a class="btn btn-info" href="/blogs/<%= blog._id %>/edit">Edit</a>
-<div>
-  <%- blog.description %>
-</div>
-<form action="/blog/<%= blog._id %>?_method=DELETE" method="POST">
+  <a id="ff" class="btn btn-secondary" href="/blogs">All Blogs</a>
+  <% if(currentUser && blog.author.id.equals(currentUser._id)){ %>
+    <a id="ff" class="btn btn-info" href="/blogs/<%= blog._id %>/edit">Edit</a>
+<form id="form" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
   <button class="btn btn-danger">delete</button>
 </form>
+ <% } %>
+  
+
+<div>
+  <%- blog.description %>
+ 
+</div>
+ 
+
+  <div class="well">
+    <div class="text-right">
+<p>
+   <a class="btn btn-success" href="/blogs/<%= blog._id %>/comments/new">Add New comment</a>
+ </p>
+    </div>
+ <% blog.comments.forEach(function(comment){ %>
+  <div class="row">
+  <div class="col-md-12">
+    <strong> <%= comment.author.username %> </strong> 
+ <span class="pull-right ">10 days ago`</span>
+ <p>
+     <%= comment.text %>
+ </p>
+  </div>
+  </div>
+<%})%>
+  </div>
+
 
   
 </div>

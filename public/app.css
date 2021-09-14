@@ -8,9 +8,24 @@
   height: 500px;
 }
 p{
-  font-weight: bolder;
+  font-weight:normal;
 }
 #cont{
  text-align: center;
  margin-top: 50px;
+}
+#item{
+  color: maroon;
+  background-color: papayawhip;
+}
+#form{
+  margin-top: 10px;
+  float:left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+#ff{
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
